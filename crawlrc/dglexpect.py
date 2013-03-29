@@ -1,9 +1,10 @@
 import os
+import sys
 import pexpect
 
 USERNAME = os.environ.get('DGL_USER')
 PASSWORD = os.environ.get('DGL_PASS')
-SSH_KEY = os.environ.get('CAO_KEY')
+SSH_KEY = os.environ.get('DGL_KEY')
 SSH_USER = 'crawl'
 SSH_SERVERS ={'cao': 'crawl.akrasiac.org',
               'cdo': 'crawl.develz.org',
@@ -56,10 +57,11 @@ def expect(rcfile, server, key=SSH_KEY):
     child.close()
 
 if __name__ == '__main__':
-    import sys
-    server = 'cszo'
+    if os.environ.get('DGL_SERVER'):
+        server = os.environ.get('DGL_SERVER')
+    else:
+        server = 'cszo'
     rc_path = sys.argv[1]
     with open(rc_path) as f:
         rcfile = [line.strip() for line in f]
-
     expect(rcfile, server)
