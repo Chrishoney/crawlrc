@@ -1,4 +1,4 @@
-# rcfile  
+# rcfile
 
 ## a tool for dcss rcfiles
 
@@ -26,4 +26,4 @@ These only need to be set if you want to mess around with pexpect
 `DGL_KEY`=path to universal crawl key
 
 One of the first things I will do is unify these environment variables and add
-in an optional config file as an alternate to setting environment variables. 
+in an optional config file as an alternate to setting environment variables.
